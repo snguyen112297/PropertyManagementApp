@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#231F20</color>
+    <color name="colorPrimaryDark">#AD974F</color>#AD974F
+    <color name="colorAccent">#BE793E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#99000000</color>
+    <color name="my_app_primary_color">#AD974F</color>
+    <color name="my_app_secondary_color">#231F20</color>
+    <color name="my_app_background_color">#BE793E</color>
+    <color name="my_app_error_color">#FF0000</color>
+</resources>

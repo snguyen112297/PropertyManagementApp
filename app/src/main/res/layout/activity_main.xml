@@ -1,0 +1,176 @@
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/action_bar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp">
+
+                <RelativeLayout
+                    style="@style/MainButtonLayout"
+                    android:layout_marginStart="32dp">
+                    <ImageView
+                        style="@style/MainButtonImage"
+                        android:src="@drawable/alerts"
+                        android:id="@+id/main_alert_img"/>
+
+                    <TextView
+                        style="@style/MainButtonText"
+                        android:layout_below="@id/main_alert_img"
+                        android:text="@string/alerts" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/MainButtonLayout"
+                    android:gravity="center_horizontal">
+                    <ImageView
+                        style="@style/MainButtonImage"
+                        android:src="@drawable/properties"
+                        android:id="@+id/main_properties_img"/>
+                    <TextView
+                        android:layout_below="@id/main_properties_img"
+                        style="@style/MainButtonText"
+                        android:text="@string/properties"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/MainButtonLayout"
+                    android:gravity="start|center_vertical"
+                    android:layout_marginEnd="32dp">
+                    <ImageView
+                        style="@style/MainButtonImage"
+                        android:src="@drawable/tenants"
+                        android:id="@+id/main_tenants_img"/>
+                    <TextView
+                        android:layout_below="@id/main_tenants_img"
+                        style="@style/MainButtonText"
+                        android:text="@string/tenants"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp">
+
+                <RelativeLayout
+                    style="@style/MainButtonLayout"
+                    android:layout_marginStart="32dp">
+                    <ImageView
+                        style="@style/MainButtonImage"
+                        android:src="@drawable/payments"
+                        android:id="@+id/main_transactions_img"/>
+
+                    <TextView
+                        style="@style/MainButtonText"
+                        android:layout_below="@id/main_transactions_img"
+                        android:text="@string/transactions" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/MainButtonLayout"
+                    android:gravity="center_horizontal">
+                    <ImageView
+                        style="@style/MainButtonImage"
+                        android:src="@drawable/collect_rent"
+                        android:id="@+id/main_collect_rent_img"/>
+                    <TextView
+                        android:layout_below="@id/main_collect_rent_img"
+                        style="@style/MainButtonText"
+                        android:text="@string/collect_rent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/MainButtonLayout"
+                    android:gravity="start|center_vertical"
+                    android:layout_marginEnd="32dp">
+                    <ImageView
+                        style="@style/MainButtonImage"
+                        android:src="@drawable/to_do_list"
+                        android:id="@+id/main_to_do_img"/>
+                    <TextView
+                        android:layout_below="@id/main_to_do_img"
+                        style="@style/MainButtonText"
+                        android:text="@string/to_do_list"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp">
+
+                <RelativeLayout
+                    style="@style/MainButtonLayout"
+                    android:layout_marginStart="32dp">
+                    <ImageView
+                        style="@style/MainButtonImage"
+                        android:src="@drawable/trips"
+                        android:id="@+id/main_trips_img"/>
+
+                    <TextView
+                        style="@style/MainButtonText"
+                        android:layout_below="@id/main_trips_img"
+                        android:text="@string/trips" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/MainButtonLayout"
+                    android:gravity="center_horizontal">
+                    <ImageView
+                        style="@style/MainButtonImage"
+                        android:src="@drawable/documents"
+                        android:id="@+id/main_documents_img"/>
+                    <TextView
+                        android:layout_below="@id/main_documents_img"
+                        style="@style/MainButtonText"
+                        android:text="@string/documents"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/MainButtonLayout"
+                    android:gravity="start|center_vertical"
+                    android:layout_marginEnd="32dp">
+                    <ImageView
+                        style="@style/MainButtonImage"
+                        android:src="@drawable/vendors"
+                        android:id="@+id/main_vendors_img"/>
+                    <TextView
+                        android:layout_below="@id/main_vendors_img"
+                        style="@style/MainButtonText"
+                        android:text="@string/vendors"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

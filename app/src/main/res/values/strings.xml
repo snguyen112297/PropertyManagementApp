@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PropertyManagementApp</string>
+    <string name="property_app">PropertyApp</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="register">Register</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="alerts">Alerts</string>
+    <string name="tenants">Tenants</string>
+    <string name="transactions">Transactions</string>
+    <string name="collect_rent">Collect Rent</string>
+    <string name="to_do_list">To-do List</string>
+    <string name="trips">Trips</string>
+    <string name="documents">Documents</string>
+    <string name="vendors">Vendors</string>
+    <string name="properties">Properties</string>
+</resources>
