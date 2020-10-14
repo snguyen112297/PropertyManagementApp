@@ -1,72 +1,72 @@
 package com.example.propertymanagementapp.data.repo
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.propertymanagementapp.data.model.LoginResponse
 import com.example.propertymanagementapp.data.model.RegisterResponse
+import com.example.propertymanagementapp.data.model.RegisterUser
 import com.example.propertymanagementapp.data.model.User
 import com.example.propertymanagementapp.data.network.MyApi
 import com.example.propertymanagementapp.helpers.d
 import com.example.propertymanagementapp.helpers.toast
-import com.example.propertymanagementapp.ui.home.MainActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.observers.DisposableSingleObserver
+import io.reactivex.schedulers.Schedulers
 
 class UserRepository{
-    fun login(context: Context, email: String, password: String, mode: String): LiveData<String> {
-        val loginResponse = MutableLiveData<String>()
-        MyApi().login(User(email, "", password, ""))
-            .enqueue(object : Callback<LoginResponse> {
-                override fun onResponse(
-                    call: Call<LoginResponse>, response: Response<LoginResponse>
-                ) {
-                    if (response.body() != null) {
-                        if (response.body()!!.user != null) {
-                            if (response.body()!!.user.type.equals(mode)) {
-                                loginResponse.value = "Logged In"
+    @SuppressLint("CheckResult")
+    fun login(context: Context, email: String, password: String, mode: String): LiveData<LoginResponse> {
+        val loginResponse = MutableLiveData<LoginResponse>()
+        MyApi().login(User("", email, "", password, ""))
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(object: DisposableSingleObserver<LoginResponse>(){
+                override fun onSuccess(response: LoginResponse) {
+                    if (response != null) {
+                        if (response.user != null) {
+                            if (response.user.type.equals(mode)) {
+                                loginResponse.value = response
                             } else context.toast("Are you sure you are a $mode?")
                         }
                     } else {
                         context.toast("Wrong email or password")
                     }
-                    context.d(response.body().toString())
+                    context.d(response.toString())
                 }
-
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                override fun onError(t: Throwable) {
                     context.d(t.message.toString())
                 }
-        })
+            })
         return loginResponse
     }
 
+    @SuppressLint("CheckResult")
     fun register(context: Context, email: String,
                  password: String, confirmPassword: String,
-                 name: String, mode: String): LiveData<String>{
-        val registerResponse = MutableLiveData<String>()
+                 name: String, mode: String): LiveData<RegisterResponse>{
+        val registerResponse = MutableLiveData<RegisterResponse>()
         if (password.length <= 6){
             context.toast("Password must be longer than 6 characters")
         } else {
 
             // Check if confirm password matches
             if (password == confirmPassword){
-                MyApi().register(User(email, name, password, mode))
-                    .enqueue(object : Callback<RegisterResponse> {
-                        override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>
-                        ) {
-                            if (response.body() != null){
-                                if (response.body()!!.data != null) {
-                                    registerResponse.value = "Registered"
+                MyApi().register(RegisterUser(email, name, password, mode))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeWith(object : DisposableSingleObserver<RegisterResponse>() {
+                        override fun onSuccess(response: RegisterResponse) {
+                            if (response != null){
+                                if (response.data != null) {
+                                    registerResponse.value = response
                                 }
                             }
-                            context.d(response.body().toString())
+                            context.d(response.toString())
                         }
 
-                        override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                        override fun onError(t: Throwable) {
                             context.d(t.message.toString())
                         }
                 })

@@ -11,28 +11,29 @@ class AuthViewModel: ViewModel() {
     var name: String? = null
     var mode: String? = null
 
-    var authListener: AuthListener? = null
+    var loginListener: LoginListener? = null
+    var registerListener: RegisterListener? = null
     fun setAuthMode(m: String){
         mode = m
     }
     fun onLoginButtonClick(view: View){
         if (email.isNullOrEmpty() || password.isNullOrEmpty()){
             // failure
-            authListener?.failure("Big oof")
+            loginListener?.failure("Big oof")
             return
         }
         // success
         val loginResponse = UserRepository().login(view.context, email!!, password!!, mode!!)
-        authListener?.onSuccess(loginResponse)
+        loginListener?.onSuccess(loginResponse)
     }
     fun onRegisterButtonClick(view: View){
         if (email.isNullOrEmpty() || password.isNullOrEmpty() || name.isNullOrEmpty()){
             // failure
-            authListener?.failure("Big oof")
+            registerListener?.failure("Big oof")
             return
         }
         // success
         val registerResponse = UserRepository().register(view.context, email!!, password!!, confirmPassword!!, name!!, mode!!)
-        authListener?.onSuccess(registerResponse)
+        registerListener?.onSuccess(registerResponse)
     }
 }

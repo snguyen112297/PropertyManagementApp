@@ -17,7 +17,10 @@
             android:id="@+id/fragment_landlord_register_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:hint="@string/name">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -32,7 +35,10 @@
             android:id="@+id/fragment_landlord_register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:hint="@string/email">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -47,7 +53,10 @@
             android:id="@+id/fragment_landlord_register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:hint="@string/password">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -62,7 +71,10 @@
             android:id="@+id/fragment_landlord_register_password_confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:hint="@string/confirm_password">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -80,7 +92,10 @@
             android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"/>
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"/>
 
 
     </LinearLayout>

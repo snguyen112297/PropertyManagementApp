@@ -11,15 +11,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.propertymanagementapp.R
+import com.example.propertymanagementapp.data.model.LoginResponse
 import com.example.propertymanagementapp.databinding.FragmentLoginBinding
+import com.example.propertymanagementapp.helpers.SessionManager
 import com.example.propertymanagementapp.helpers.d
 import com.example.propertymanagementapp.helpers.toast
 import com.example.propertymanagementapp.ui.home.MainActivity
 
 private const val ARG_PARAM1 = "param1"
 
-class LoginFragment : Fragment(), AuthListener {
+class LoginFragment : Fragment(), LoginListener {
 
+    lateinit var sessionManager: SessionManager
     lateinit var mBinding: FragmentLoginBinding
 
     private var mode: String? = null
@@ -39,7 +42,8 @@ class LoginFragment : Fragment(), AuthListener {
         val viewModel: AuthViewModel = ViewModelProviders.of(this).get(AuthViewModel::class.java)
         viewModel.setAuthMode(mode!!)
         mBinding.viewModel = viewModel
-        viewModel.authListener = this
+        viewModel.loginListener = this
+        sessionManager = SessionManager(mBinding.root.context)
         return mBinding.root
     }
 
@@ -49,8 +53,9 @@ class LoginFragment : Fragment(), AuthListener {
         mBinding.root.context.d("Logging")
     }
 
-    override fun onSuccess(response: LiveData<String>) {
+    override fun onSuccess(response: LiveData<LoginResponse>) {
         response.observe(this, Observer {
+            sessionManager.saveUserLogin(response.value!!)
             mBinding.root.context.toast("Logged In")
             mBinding.root.context.startActivity(Intent(mBinding.root.context, MainActivity::class.java))
         })

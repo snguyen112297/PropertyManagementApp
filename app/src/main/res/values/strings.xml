@@ -20,4 +20,16 @@
     <string name="documents">Documents</string>
     <string name="vendors">Vendors</string>
     <string name="properties">Properties</string>
+    <string name="logout">Logout</string>
+    <string name="add_property">Add Property</string>
+    <string name="address">Address</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="price">Price</string>
+    <string name="country">Country</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="add_image">Add Image</string>
+    <string name="open_camera">Open Camera</string>
+    <string name="open_files">Open files</string>
 </resources>
