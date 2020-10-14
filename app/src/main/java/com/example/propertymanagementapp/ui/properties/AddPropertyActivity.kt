@@ -33,7 +33,6 @@ import kotlinx.android.synthetic.main.action_bar.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -124,7 +123,7 @@ class AddPropertyActivity : AppCompatActivity(), AddPropertyListener {
             override fun onResponse(call: Call<ImageUploadResponse>, response: Response<ImageUploadResponse>) {
                 if (response.isSuccessful){
                     applicationContext.d("Success")
-                    mBinding.viewModel.addImage(response.body()!!.data.location)
+                    mBinding.viewModel!!.addImage(response.body()!!.data.location)
                 }
             }
 
@@ -237,6 +236,12 @@ class AddPropertyActivity : AppCompatActivity(), AddPropertyListener {
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             var imageUri = data!!.data
             uploadImage(getRealPathFromURI(imageUri)!!)
+        }
+        if (resultCode == RESULT_OK && requestCode == CAMERA_REQUEST_CODE){
+            var bmp = data?.extras!!.get("data") as Bitmap
+            var uri = getImageUri(this, bmp)
+            var imagePath = getRealPathFromURI(uri)
+            uploadImage(imagePath!!)
         }
     }
 }

@@ -36,5 +36,4 @@ class AddPropertyViewModel: ViewModel(){
     fun addImage(imageURL: String){
         image = imageURL
     }
-
 }
