@@ -10,8 +10,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.propertymanagementapp.R
 import com.example.propertymanagementapp.adapters.AdapterProperty
+import com.example.propertymanagementapp.data.model.Property
 import com.example.propertymanagementapp.data.model.PropertyResponse
 import com.example.propertymanagementapp.databinding.ActivityPropertyBinding
+import com.example.propertymanagementapp.helpers.SessionManager
 import com.example.propertymanagementapp.helpers.d
 import com.example.propertymanagementapp.helpers.toast
 import kotlinx.android.synthetic.main.action_bar.*
@@ -22,6 +24,8 @@ class PropertyActivity : AppCompatActivity(), PropertyListener {
     lateinit var mBinding: ActivityPropertyBinding
 
     lateinit var adapterProperty: AdapterProperty
+
+    lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,9 +63,17 @@ class PropertyActivity : AppCompatActivity(), PropertyListener {
     }
 
     override fun onSuccess(response: LiveData<PropertyResponse>) {
+        sessionManager = SessionManager(this)
+        var userId = sessionManager.getUserId()
         response.observe(this, Observer{
             this.d(response.value.toString())
-            adapterProperty.setData(response.value!!)
+            val responseValue: ArrayList<Property> = ArrayList()
+            for (i in (0..response.value!!.data.size)){
+                if (response.value!!.data[i].userId == userId){
+                    responseValue.add(response.value!!.data[i])
+                }
+            }
+            adapterProperty.setData(responseValue)
         })
     }
 

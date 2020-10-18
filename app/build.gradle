@@ -22,9 +22,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    dataBinding {
-        enabled = true
+    // data binding
+    buildFeatures {
+        dataBinding true
     }
+
     buildTypes {
         release {
             minifyEnabled false

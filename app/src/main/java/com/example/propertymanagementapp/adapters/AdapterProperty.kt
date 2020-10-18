@@ -31,11 +31,9 @@ class AdapterProperty(var mContext: Context): RecyclerView.Adapter<AdapterProper
         return mList.size
     }
 
-    fun setData(response: PropertyResponse){
-        if (response.count != 0) {
-            mList = response.data
-            notifyDataSetChanged()
-        }
+    fun setData(response: ArrayList<Property>){
+        mList = response
+        notifyDataSetChanged()
     }
 
     inner class MyViewHolder(var mBinding: RowPropertyAdapterBinding) : RecyclerView.ViewHolder(mBinding.root){

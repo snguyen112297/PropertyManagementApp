@@ -236,12 +236,14 @@ class AddPropertyActivity : AppCompatActivity(), AddPropertyListener {
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             var imageUri = data!!.data
             uploadImage(getRealPathFromURI(imageUri)!!)
+            mBinding.addPropertyImageView.setImageURI(imageUri)
         }
         if (resultCode == RESULT_OK && requestCode == CAMERA_REQUEST_CODE){
             var bmp = data?.extras!!.get("data") as Bitmap
             var uri = getImageUri(this, bmp)
             var imagePath = getRealPathFromURI(uri)
             uploadImage(imagePath!!)
+            mBinding.addPropertyImageView.setImageURI(uri)
         }
     }
 }
