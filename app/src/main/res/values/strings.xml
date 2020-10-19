@@ -33,4 +33,8 @@
     <string name="open_camera">Open Camera</string>
     <string name="open_files">Open files</string>
     <string name="image">Image</string>
+    <string name="delete">Delete</string>
+    <string name="add_task_button">Add Task Button</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
 </resources>

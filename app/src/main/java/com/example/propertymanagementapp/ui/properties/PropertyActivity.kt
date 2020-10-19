@@ -68,7 +68,7 @@ class PropertyActivity : AppCompatActivity(), PropertyListener {
         response.observe(this, Observer{
             this.d(response.value.toString())
             val responseValue: ArrayList<Property> = ArrayList()
-            for (i in (0..response.value!!.data.size)){
+            for (i in 0 until response.value!!.data.size){
                 if (response.value!!.data[i].userId == userId){
                     responseValue.add(response.value!!.data[i])
                 }

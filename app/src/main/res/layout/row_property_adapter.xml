@@ -1,74 +1,59 @@
-<layout>
-    <data>
-        <import type="android.view.View"/>
-        <variable
-            name="viewModel"
-            type="com.example.propertymanagementapp.ui.properties.PropertyItemViewModel" />
-    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="10dp">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/property_adapter_image"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_width="120dp"
+        android:layout_height="120dp"/>
+
+    <TextView
+        android:id="@+id/property_adapter_address"
+        android:layout_toEndOf="@id/property_adapter_image"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@android:color/white"
-        android:padding="10dp">
+        android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/property_adapter_image"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:layout_width="120dp"
-            android:layout_height="120dp"/>
+    <TextView
+        android:id="@+id/property_adapter_city"
+        android:layout_below="@id/property_adapter_address"
+        android:layout_toEndOf="@id/property_adapter_image"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/property_adapter_address"
-            android:layout_toEndOf="@id/property_adapter_image"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@={viewModel.address}"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/property_adapter_state"
+        android:layout_below="@id/property_adapter_city"
+        android:layout_toEndOf="@id/property_adapter_image"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/property_adapter_city"
-            android:layout_below="@id/property_adapter_address"
-            android:layout_toEndOf="@id/property_adapter_image"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@={viewModel.city}"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/property_adapter_country"
+        android:layout_below="@id/property_adapter_state"
+        android:layout_toEndOf="@id/property_adapter_image"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/property_adapter_state"
-            android:layout_below="@id/property_adapter_city"
-            android:layout_toEndOf="@id/property_adapter_image"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@={viewModel.state}"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/property_adapter_userType"
+        android:layout_below="@id/property_adapter_country"
+        android:layout_toEndOf="@id/property_adapter_image"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/property_adapter_country"
-            android:layout_below="@id/property_adapter_state"
-            android:layout_toEndOf="@id/property_adapter_image"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@={viewModel.country}"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/property_adapter_userType"
-            android:layout_below="@id/property_adapter_country"
-            android:layout_toEndOf="@id/property_adapter_image"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@={viewModel.userType}"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
-
-    </RelativeLayout>
-
-</layout>
+</RelativeLayout>

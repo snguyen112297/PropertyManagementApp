@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#AD974F</color>#AD974F
     <color name="colorAccent">#BE793E</color>
     <color name="white">#FFFFFF</color>
+    <color name="lightGrey">#D3D3D3</color>
     <color name="black">#99000000</color>
     <color name="my_app_primary_color">#AD974F</color>
     <color name="my_app_secondary_color">#231F20</color>

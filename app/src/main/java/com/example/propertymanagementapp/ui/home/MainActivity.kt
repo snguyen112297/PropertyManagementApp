@@ -9,6 +9,7 @@ import com.example.propertymanagementapp.R
 import com.example.propertymanagementapp.helpers.SessionManager
 import com.example.propertymanagementapp.ui.auth.SignInActivity
 import com.example.propertymanagementapp.ui.properties.PropertyActivity
+import com.example.propertymanagementapp.ui.todo.TodoListActivity
 import kotlinx.android.synthetic.main.action_bar.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         main_properties_select.setOnClickListener(this)
         main_log_out.setOnClickListener(this)
+        main_to_do.setOnClickListener(this)
     }
 
 
@@ -43,6 +45,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 sessionManager.logout()
                 startActivity(Intent(this, SignInActivity::class.java))
                 finish()
+            }
+            main_to_do -> {
+                startActivity(Intent(this, TodoListActivity::class.java))
             }
         }
     }
